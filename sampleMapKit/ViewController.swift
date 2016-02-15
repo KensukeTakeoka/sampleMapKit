@@ -7,17 +7,34 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myMapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+//        中心となる場所の座標オブジェクトを作成
+//        アヤラ
+        let coodinate = CLLocationCoordinate2DMake(10.317347, 123.905759)
+        
+        
+//        縮尺を設定
+        let span = MKCoordinateSpanMake(0.05,0.05)
+        
+//        範囲オブジェクトを作成
+        let region = MKCoordinateRegionMake(coodinate,span)
+        
+//        mapViewに設定
+        myMapView.setRegion(region, animated: true)
+        
+        
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 
